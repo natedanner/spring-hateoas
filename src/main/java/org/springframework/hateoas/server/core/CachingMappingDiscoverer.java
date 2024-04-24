@@ -33,7 +33,7 @@ import org.springframework.util.StringUtils;
  * @author Oliver Drotbohm
  * @author Réda Housni Alaoui
  */
-public class CachingMappingDiscoverer implements MappingDiscoverer {
+public final class CachingMappingDiscoverer implements MappingDiscoverer {
 
 	private static final Map<String, String> MAPPINGS = new ConcurrentReferenceHashMap<>();
 	private static final Map<String, Collection<HttpMethod>> METHODS = new ConcurrentReferenceHashMap<>();

@@ -192,9 +192,8 @@ class UriTemplateUnitTest {
 	@SuppressWarnings("null")
 	void rejectsEmptyBaseUri() {
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			UriTemplate.of(null, TemplateVariables.NONE);
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			UriTemplate.of(null, TemplateVariables.NONE));
 	}
 
 	@Test // #281
@@ -280,9 +279,8 @@ class UriTemplateUnitTest {
 
 				Object result = object.readObject();
 
-				assertThat(result).isInstanceOfSatisfying(UriTemplate.class, it -> {
-					assertThat(it.expand("bar")).hasToString("/bar");
-				});
+				assertThat(result).isInstanceOfSatisfying(UriTemplate.class, it ->
+					assertThat(it.expand("bar")).hasToString("/bar"));
 			}
 		}
 	}
@@ -622,7 +620,7 @@ class UriTemplateUnitTest {
 				of("/foo/b%22ar{?x}", "/foo/b%22ar?x=1").param("x", 1));
 	}
 
-	static class EncodingFixture {
+	static final class EncodingFixture {
 
 		private final String template;
 		private final URI uri;

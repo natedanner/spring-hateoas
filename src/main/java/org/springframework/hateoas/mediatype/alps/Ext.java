@@ -63,10 +63,12 @@ public final class Ext {
 	@Override
 	public boolean equals(Object o) {
 
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+		if (o == null || getClass() != o.getClass()) {
 			return false;
+		}
 		Ext ext = (Ext) o;
 		return Objects.equals(this.id, ext.id) && Objects.equals(this.href, ext.href)
 				&& Objects.equals(this.value, ext.value);

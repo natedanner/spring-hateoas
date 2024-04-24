@@ -126,11 +126,13 @@ public interface HalFormsOptions {
 	@Nullable
 	Object getSelectedValue();
 
-	public static abstract class AbstractHalFormsOptions<T extends AbstractHalFormsOptions<T>>
+	public abstract static class AbstractHalFormsOptions<T extends AbstractHalFormsOptions<T>>
 			implements HalFormsOptions {
 
-		private final @Nullable String promptField, valueField;
-		private final @Nullable Long minItems, maxItems;
+		private final @Nullable String promptField;
+		private final @Nullable String valueField;
+		private final @Nullable Long minItems;
+		private final @Nullable Long maxItems;
 		private final @Nullable Object selectedValue;
 
 		protected AbstractHalFormsOptions(@Nullable String promptRef, @Nullable String valueRef, @Nullable Long minItems,
@@ -279,7 +281,7 @@ public interface HalFormsOptions {
 				@Nullable Long maxItems, @Nullable Object selectedValue);
 	}
 
-	public static class Inline extends AbstractHalFormsOptions<Inline> {
+	public static final class Inline extends AbstractHalFormsOptions<Inline> {
 
 		private final Collection<? extends Object> inline;
 
@@ -324,7 +326,7 @@ public interface HalFormsOptions {
 	 *
 	 * @author Oliver Drotbohm
 	 */
-	public static class Remote extends AbstractHalFormsOptions<Remote> {
+	public static final class Remote extends AbstractHalFormsOptions<Remote> {
 
 		private final Link link;
 

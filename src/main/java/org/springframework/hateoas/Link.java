@@ -53,7 +53,13 @@ public class Link implements Serializable {
 
 	private LinkRelation rel;
 	private String href;
-	private @Nullable String hreflang, media, title, type, deprecation, profile, name;
+	private @Nullable String hreflang;
+	private @Nullable String media;
+	private @Nullable String title;
+	private @Nullable String type;
+	private @Nullable String deprecation;
+	private @Nullable String profile;
+	private @Nullable String name;
 	private @JsonIgnore @Nullable UriTemplate template;
 	private @JsonIgnore List<Affordance> affordances;
 

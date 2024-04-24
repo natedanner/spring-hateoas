@@ -113,7 +113,7 @@ public class RepresentationModelProcessorInvokerUnitTests {
 
 	static class FirstEntityProcessor implements RepresentationModelProcessor<CollectionModel<EntityModel<FirstEntity>>> {
 
-		boolean invoked = false;
+		boolean invoked;
 
 		@Override
 		public CollectionModel<EntityModel<FirstEntity>> process(CollectionModel<EntityModel<FirstEntity>> model) {
@@ -128,7 +128,7 @@ public class RepresentationModelProcessorInvokerUnitTests {
 	static class CollectionModelOfGenericModelProcessor
 			implements RepresentationModelProcessor<CollectionModel<GenericModel<?>>> {
 
-		boolean invoked = false;
+		boolean invoked;
 
 		@Override
 		public CollectionModel<GenericModel<?>> process(CollectionModel<GenericModel<?>> model) {

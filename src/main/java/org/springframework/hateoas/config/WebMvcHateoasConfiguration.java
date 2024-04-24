@@ -139,7 +139,7 @@ class WebMvcHateoasConfiguration {
 				delegate.addHandlers(adapter.getReturnValueHandlers());
 
 				RepresentationModelProcessorHandlerMethodReturnValueHandler handler = new RepresentationModelProcessorHandlerMethodReturnValueHandler(
-						delegate, () -> invoker.getObject());
+						delegate, invoker::getObject);
 
 				adapter.setReturnValueHandlers(Collections.singletonList(handler));
 			}

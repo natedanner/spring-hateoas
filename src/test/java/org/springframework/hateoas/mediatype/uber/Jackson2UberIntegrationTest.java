@@ -567,6 +567,7 @@ class Jackson2UberIntegrationTest extends AbstractJackson2MarshallingIntegration
 	@NoArgsConstructor
 	@EqualsAndHashCode(callSuper = true)
 	static class EmployeeResource extends RepresentationModel<EmployeeResource> {
-		private @Nullable String name, role;
+		private @Nullable String name;
+		private @Nullable String role;
 	}
 }

@@ -86,7 +86,7 @@ public class MediaTypeTestUtils {
 				.map(MappingJackson2HttpMessageConverter.class::cast) //
 				.findFirst() //
 				.map(it -> it.getSupportedMediaTypes(type)) //
-				.orElseGet(() -> Collections.emptyList()); //
+				.orElseGet(Collections::emptyList); //
 	}
 
 	public static List<MediaType> getSupportedHypermediaTypes(WebClient client) {
@@ -102,7 +102,7 @@ public class MediaTypeTestUtils {
 				.filter(it -> Jackson2JsonDecoder.class.isInstance(it.getDecoder()))
 				.findFirst() //
 				.map(it -> it.getReadableMediaTypes(ResolvableType.forClass(type))) //
-				.orElseGet(() -> Collections.emptyList());
+				.orElseGet(Collections::emptyList);
 	}
 
 	/**

@@ -69,7 +69,7 @@ public class TypeReferences {
 	 * @author Oliver Gierke
 	 * @since 0.17
 	 */
-	private static abstract class SyntheticParameterizedTypeReference<T> extends ParameterizedTypeReference<T> {
+	private abstract static class SyntheticParameterizedTypeReference<T> extends ParameterizedTypeReference<T> {
 
 		private final Type type;
 

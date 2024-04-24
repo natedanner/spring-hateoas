@@ -53,10 +53,12 @@ final class UberError {
 	@Override
 	public boolean equals(Object o) {
 
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (!(o instanceof UberError))
+		}
+		if (!(o instanceof UberError)) {
 			return false;
+		}
 		UberError uberError = (UberError) o;
 		return Objects.equals(this.data, uberError.data);
 	}

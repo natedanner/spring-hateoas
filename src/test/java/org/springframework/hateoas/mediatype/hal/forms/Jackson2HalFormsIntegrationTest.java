@@ -663,10 +663,9 @@ class Jackson2HalFormsIntegrationTest {
 		HalFormsTemplateBuilder builder = new HalFormsTemplateBuilder(new HalFormsConfiguration(), resolver);
 		factory.registerSingleton("foobar", new HalFormsTemplatePropertyWriter(builder));
 
-		return MappingTestUtils.createMapper(Jackson2HalFormsIntegrationTest.class, configurer.andThen(it -> {
+		return MappingTestUtils.createMapper(Jackson2HalFormsIntegrationTest.class, configurer.andThen(it ->
 			it.setHandlerInstantiator(new Jackson2HalModule.HalHandlerInstantiator(this.provider, provider,
-					resolver, new HalConfiguration(), factory));
-		}));
+					resolver, new HalConfiguration(), factory))));
 	}
 
 	@JsonAutoDetect(getterVisibility = Visibility.PUBLIC_ONLY)

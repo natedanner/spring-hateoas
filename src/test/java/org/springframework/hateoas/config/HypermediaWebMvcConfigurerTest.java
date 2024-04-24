@@ -408,7 +408,7 @@ class HypermediaWebMvcConfigurerTest {
 	@Configuration
 	@WebAppConfiguration
 	@EnableWebMvc
-	static abstract class BaseConfig {
+	abstract static class BaseConfig {
 
 		@Bean
 		TestController testController() {

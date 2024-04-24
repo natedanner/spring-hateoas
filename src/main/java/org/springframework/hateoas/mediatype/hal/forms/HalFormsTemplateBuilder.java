@@ -59,9 +59,8 @@ class HalFormsTemplateBuilder {
 		resource.getLinks().stream() //
 				.flatMap(it -> it.getAffordances().stream()) //
 				.map(it -> it.getAffordanceModel(MediaTypes.HAL_FORMS_JSON)) //
-				.peek(it -> {
-					Assert.notNull(it, "No HAL Forms affordance model found but expected!");
-				}) //
+				.peek(it ->
+					Assert.notNull(it, "No HAL Forms affordance model found but expected!")) //
 				.map(HalFormsAffordanceModel.class::cast) //
 				.filter(it -> !it.hasHttpMethod(HttpMethod.GET)) //
 				.forEach(it -> {
@@ -91,7 +90,7 @@ class HalFormsTemplateBuilder {
 				.orElse(template);
 	}
 
-	private static class TemplateTitle implements MessageSourceResolvable {
+	private static final class TemplateTitle implements MessageSourceResolvable {
 
 		private static final String TEMPLATE_TEMPLATE = "_templates.%s.title";
 

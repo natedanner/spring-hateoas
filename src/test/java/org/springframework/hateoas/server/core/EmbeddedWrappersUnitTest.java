@@ -68,9 +68,8 @@ class EmbeddedWrappersUnitTest {
 	@Test
 	void rejectsEmptyCollectionWithoutExplicitRel() {
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			wrappers.wrap(Collections.emptySet());
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			wrappers.wrap(Collections.emptySet()));
 	}
 
 	@Test // #1335
@@ -79,9 +78,8 @@ class EmbeddedWrappersUnitTest {
 
 		EmbeddedWrapper wrap = wrappers.wrap(new Streamable<>(Stream.of(1, 2, 3)));
 
-		assertThat(wrap.getValue()).isInstanceOfSatisfying(Collection.class, it -> {
-			assertThat(it).containsExactly(1, 2, 3);
-		});
+		assertThat(wrap.getValue()).isInstanceOfSatisfying(Collection.class, it ->
+			assertThat(it).containsExactly(1, 2, 3));
 	}
 
 	@SuppressWarnings("unchecked")

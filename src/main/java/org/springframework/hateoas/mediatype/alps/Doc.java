@@ -84,10 +84,12 @@ public final class Doc {
 	@Override
 	public boolean equals(Object o) {
 
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+		if (o == null || getClass() != o.getClass()) {
 			return false;
+		}
 		Doc doc = (Doc) o;
 		return Objects.equals(this.href, doc.href) && Objects.equals(this.value, doc.value) && this.format == doc.format;
 	}

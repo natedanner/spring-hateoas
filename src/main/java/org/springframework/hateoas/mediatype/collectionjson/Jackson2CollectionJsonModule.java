@@ -524,7 +524,7 @@ public class Jackson2CollectionJsonModule extends SimpleModule {
 		@Override
 		@SuppressWarnings("null")
 		public boolean isEmpty(PagedModel<?> value) {
-			return value.getContent().size() == 0;
+			return value.getContent().isEmpty();
 		}
 
 		/*
@@ -793,7 +793,7 @@ public class Jackson2CollectionJsonModule extends SimpleModule {
 		}
 	}
 
-	static abstract class CollectionJsonDeserializerBase<T extends CollectionModel<?>>
+	abstract static class CollectionJsonDeserializerBase<T extends CollectionModel<?>>
 			extends ContainerDeserializerBase<T> implements ContextualDeserializer {
 
 		private static final long serialVersionUID = 1007769482339850545L;

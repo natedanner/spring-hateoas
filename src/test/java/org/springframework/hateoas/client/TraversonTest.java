@@ -150,7 +150,7 @@ class TraversonTest {
 	@Test
 	void readsTraversalIntoResourceInstance() {
 
-		ParameterizedTypeReference<EntityModel<Actor>> typeReference = new ParameterizedTypeReference<EntityModel<Actor>>() {};
+		ParameterizedTypeReference<EntityModel<Actor>> typeReference = new ParameterizedTypeReference<>() {};
 		EntityModel<Actor> result = traverson.follow("movies", "movie", "actor").toObject(typeReference);
 
 		assertThat(result.getContent().name).isEqualTo("Keanu Reaves");
@@ -309,7 +309,7 @@ class TraversonTest {
 	@Test
 	void chainMultipleFollowOperations() {
 
-		ParameterizedTypeReference<EntityModel<Actor>> typeReference = new ParameterizedTypeReference<EntityModel<Actor>>() {};
+		ParameterizedTypeReference<EntityModel<Actor>> typeReference = new ParameterizedTypeReference<>() {};
 		EntityModel<Actor> result = traverson.follow("movies").follow("movie").follow("actor").toObject(typeReference);
 
 		assertThat(result.getContent().name).isEqualTo("Keanu Reaves");
@@ -324,7 +324,7 @@ class TraversonTest {
 		this.traverson = new Traverson(URI.create(server.rootResource() + "/springagram"), MediaTypes.HAL_JSON);
 
 		// tag::hop-with-param[]
-		ParameterizedTypeReference<EntityModel<Item>> resourceParameterizedTypeReference = new ParameterizedTypeReference<EntityModel<Item>>() {};
+		ParameterizedTypeReference<EntityModel<Item>> resourceParameterizedTypeReference = new ParameterizedTypeReference<>() {};
 
 		EntityModel<Item> itemResource = traverson.//
 				follow(rel("items").withParameter("projection", "noImages")).//
@@ -350,7 +350,7 @@ class TraversonTest {
 		this.traverson = new Traverson(URI.create(server.rootResource() + "/springagram"), MediaTypes.HAL_JSON);
 
 		// tag::hop-put[]
-		ParameterizedTypeReference<EntityModel<Item>> resourceParameterizedTypeReference = new ParameterizedTypeReference<EntityModel<Item>>() {};
+		ParameterizedTypeReference<EntityModel<Item>> resourceParameterizedTypeReference = new ParameterizedTypeReference<>() {};
 
 		Map<String, Object> params = Collections.singletonMap("projection", "noImages");
 
@@ -380,7 +380,7 @@ class TraversonTest {
 		Map<String, Object> params = new HashMap<>();
 		params.put("projection", "thisShouldGetOverwrittenByLocalHop");
 
-		ParameterizedTypeReference<EntityModel<Item>> resourceParameterizedTypeReference = new ParameterizedTypeReference<EntityModel<Item>>() {};
+		ParameterizedTypeReference<EntityModel<Item>> resourceParameterizedTypeReference = new ParameterizedTypeReference<>() {};
 		EntityModel<Item> itemResource = traverson.follow(rel("items").withParameter("projection", "noImages"))
 				.follow("$._embedded.items[0]._links.self.href") // retrieve first Item in the collection
 				.withTemplateParameters(params).toObject(resourceParameterizedTypeReference);

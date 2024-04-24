@@ -25,6 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -47,7 +48,7 @@ import org.springframework.web.util.UriUtils;
  * @see https://tools.ietf.org/html/rfc6570
  * @since 0.9
  */
-public class UriTemplate implements Iterable<TemplateVariable>, Serializable {
+public final class UriTemplate implements Iterable<TemplateVariable>, Serializable {
 
 	private static final Pattern VARIABLE_REGEX = Pattern
 			.compile("\\{([\\?\\&#/\\.\\+\\;]?)([\\w\\.(\\:\\d+)*%\\,*]+)\\}");
@@ -56,7 +57,8 @@ public class UriTemplate implements Iterable<TemplateVariable>, Serializable {
 
 	private final TemplateVariables variables;
 	private final ExpandGroups groups;
-	private final String baseUri, template;
+	private final String baseUri;
+	private final String template;
 
 	/**
 	 * Creates a new {@link UriTemplate} using the given template string.
@@ -462,7 +464,7 @@ public class UriTemplate implements Iterable<TemplateVariable>, Serializable {
 
 			return type.join(variables.stream()
 					.map(it -> it.expand(parameters))
-					.filter(it -> it != null)
+					.filter(Objects::nonNull)
 					.collect(Collectors.toList()));
 		}
 

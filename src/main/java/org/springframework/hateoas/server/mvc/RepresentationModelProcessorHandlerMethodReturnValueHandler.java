@@ -60,7 +60,7 @@ public class RepresentationModelProcessorHandlerMethodReturnValueHandler impleme
 	private final HandlerMethodReturnValueHandler delegate;
 	private final Supplier<RepresentationModelProcessorInvoker> invoker;
 
-	private boolean rootLinksAsHeaders = false;
+	private boolean rootLinksAsHeaders;
 
 	public RepresentationModelProcessorHandlerMethodReturnValueHandler(HandlerMethodReturnValueHandler delegate,
 			Supplier<RepresentationModelProcessorInvoker> invoker) {

@@ -42,7 +42,7 @@ import org.springframework.util.ConcurrentReferenceHashMap;
  */
 public class MethodParameters {
 
-	private static ParameterNameDiscoverer DISCOVERER = new DefaultParameterNameDiscoverer();
+	private static ParameterNameDiscoverer discoverer = new DefaultParameterNameDiscoverer();
 	private static final Map<Method, MethodParameters> CACHE = new ConcurrentReferenceHashMap<>();
 
 	private final List<MethodParameter> parameters;
@@ -83,7 +83,7 @@ public class MethodParameters {
 
 		this.parameters = IntStream.range(0, method.getParameterTypes().length) //
 				.mapToObj(it -> new AnnotationNamingMethodParameter(method, it, namingAnnotation)) //
-				.peek(it -> it.initParameterNameDiscovery(DISCOVERER)) //
+				.peek(it -> it.initParameterNameDiscovery(discoverer)) //
 				.collect(Collectors.toList());
 	}
 
@@ -138,12 +138,9 @@ public class MethodParameters {
 
 		Assert.notNull(annotation, "Annotation must not be null!");
 
-		return parametersWithAnnotationCache.computeIfAbsent(annotation, key -> {
-
-			return getParameters().stream()//
+		return parametersWithAnnotationCache.computeIfAbsent(annotation, key -> getParameters().stream()//
 					.filter(it -> it.hasParameterAnnotation((Class<? extends Annotation>) key))//
-					.collect(Collectors.toList());
-		});
+					.collect(Collectors.toList()));
 	}
 
 	/**

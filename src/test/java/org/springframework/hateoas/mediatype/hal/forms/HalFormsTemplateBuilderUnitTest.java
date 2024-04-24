@@ -194,11 +194,10 @@ class HalFormsTemplateBuilderUnitTest {
 				.findTemplates(models);
 
 		assertThat(templates.get("default").getPropertyByName("number")) //
-				.hasValueSatisfying(it -> {
+				.hasValueSatisfying(it ->
 					assertThat(it.getOptions()).isNotNull() //
 							.isInstanceOfSatisfying(HalFormsOptions.Inline.class,
-									inline -> assertThat(inline.getInline()).isEqualTo(values));
-				});
+									inline -> assertThat(inline.getInline()).isEqualTo(values)));
 	}
 
 	@Test // #1510
@@ -220,9 +219,8 @@ class HalFormsTemplateBuilderUnitTest {
 		Map<String, HalFormsTemplate> templates = new HalFormsTemplateBuilder(configuration, MessageResolver.DEFAULTS_ONLY)
 				.findTemplates(models);
 
-		assertThat(templates.get("default").getPropertyByName("number")).hasValueSatisfying(it -> {
-			assertThat(it.getValue()).isEqualTo(selected);
-		});
+		assertThat(templates.get("default").getPropertyByName("number")).hasValueSatisfying(it ->
+			assertThat(it.getValue()).isEqualTo(selected));
 	}
 
 	@Test // #1608
@@ -258,9 +256,8 @@ class HalFormsTemplateBuilderUnitTest {
 		Map<String, HalFormsTemplate> templates = new HalFormsTemplateBuilder(new HalFormsConfiguration(),
 				MessageResolver.DEFAULTS_ONLY).findTemplates(models);
 
-		assertThat(templates.get("default").getPropertyByName("property")).hasValueSatisfying(it -> {
-			assertThat(it.getType()).isEqualTo("custom");
-		});
+		assertThat(templates.get("default").getPropertyByName("property")).hasValueSatisfying(it ->
+			assertThat(it.getType()).isEqualTo("custom"));
 	}
 
 	@Getter

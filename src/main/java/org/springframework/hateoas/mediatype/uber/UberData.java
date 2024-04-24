@@ -58,7 +58,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 final class UberData {
 
-	private @Nullable final String id, name, label;
+	private @Nullable final String id;
+	private @Nullable final String name;
+	private @Nullable final String label;
 	private @Nullable final List<LinkRelation> rel;
 	private @Nullable final String url;
 	private @Nullable final UberAction action;
@@ -72,7 +74,7 @@ final class UberData {
 	/**
 	 * Simple scalar types that can be encoded by value, not type.
 	 */
-	private final static HashSet<Class<?>> PRIMITIVE_TYPES = new HashSet<>(Collections.singletonList(String.class));
+	private static final HashSet<Class<?>> PRIMITIVE_TYPES = new HashSet<>(Collections.singletonList(String.class));
 
 	/**
 	 * Set of all Spring HATEOAS resource types.
@@ -613,10 +615,12 @@ final class UberData {
 	@Override
 	public boolean equals(Object o) {
 
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (!(o instanceof UberData))
+		}
+		if (!(o instanceof UberData)) {
 			return false;
+		}
 		UberData uberData = (UberData) o;
 		return this.transclude == uberData.transclude && Objects.equals(this.id, uberData.id)
 				&& Objects.equals(this.name, uberData.name) && Objects.equals(this.label, uberData.label)
@@ -671,10 +675,12 @@ final class UberData {
 		@Override
 		public boolean equals(Object o) {
 
-			if (this == o)
+			if (this == o) {
 				return true;
-			if (!(o instanceof LinkAndRels))
+			}
+			if (!(o instanceof LinkAndRels)) {
 				return false;
+			}
 			LinkAndRels that = (LinkAndRels) o;
 			return Objects.equals(this.link, that.link) && Objects.equals(this.rels, that.rels);
 		}

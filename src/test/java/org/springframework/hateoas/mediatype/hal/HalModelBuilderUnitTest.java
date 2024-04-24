@@ -415,7 +415,7 @@ public class HalModelBuilderUnitTest {
 	static class ZoomProduct {
 
 		private String someProductProperty;
-		@Getter(onMethod = @__({ @JsonIgnore })) private boolean favorite = false;
-		@Getter(onMethod = @__({ @JsonIgnore })) private boolean purchased = false;
+		@Getter(onMethod = @__({ @JsonIgnore })) private boolean favorite;
+		@Getter(onMethod = @__({ @JsonIgnore })) private boolean purchased;
 	}
 }

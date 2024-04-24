@@ -29,7 +29,7 @@ public class JsonPathUtils {
 
 	public static <T> AssertionMatcher<String> jsonPath(String expression, Matcher<T> matcher) {
 
-		return new AssertionMatcher<String>() {
+		return new AssertionMatcher<>() {
 			@Override
 			public void assertion(String actual) throws AssertionError {
 				new JsonPathExpectationsHelper(expression).assertValue(actual, matcher);

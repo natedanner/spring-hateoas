@@ -81,10 +81,12 @@ final class CollectionJsonData {
 	@Override
 	public boolean equals(Object o) {
 
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+		if (o == null || getClass() != o.getClass()) {
 			return false;
+		}
 		CollectionJsonData that = (CollectionJsonData) o;
 		return Objects.equals(this.name, that.name) && Objects.equals(this.value, that.value)
 				&& Objects.equals(this.prompt, that.prompt);

@@ -52,7 +52,7 @@ public class MediaTypeConfigurationFactory<T, S extends MediaTypeConfigurationCu
 	}
 
 	public MediaTypeConfigurationFactory(Supplier<T> supplier, ObjectProvider<S> customizers) {
-		this(supplier, () -> customizers.orderedStream());
+		this(supplier, customizers::orderedStream);
 	}
 
 	/**

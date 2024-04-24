@@ -38,7 +38,7 @@ import org.springframework.util.Assert;
  */
 public class EmbeddedWrappers {
 
-	private static ResolvableType SUPPLIER_OF_STREAM = ResolvableType.forClassWithGenerics(Supplier.class, Stream.class);
+	private static final ResolvableType SUPPLIER_OF_STREAM = ResolvableType.forClassWithGenerics(Supplier.class, Stream.class);
 
 	private final boolean preferCollections;
 
@@ -121,7 +121,7 @@ public class EmbeddedWrappers {
 		return Collections.singleton(source);
 	}
 
-	private static abstract class AbstractEmbeddedWrapper implements EmbeddedWrapper {
+	private abstract static class AbstractEmbeddedWrapper implements EmbeddedWrapper {
 
 		private static final LinkRelation NO_REL = LinkRelation.of("___norel___");
 

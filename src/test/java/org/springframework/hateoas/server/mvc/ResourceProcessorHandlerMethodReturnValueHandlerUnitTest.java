@@ -446,7 +446,7 @@ class ResourceProcessorHandlerMethodReturnValueHandlerUnitTest {
 
 	static class ProjectionProcessor implements RepresentationModelProcessor<EntityModel<SampleProjection>> {
 
-		boolean invoked = false;
+		boolean invoked;
 
 		@Override
 		public EntityModel<SampleProjection> process(EntityModel<SampleProjection> model) {
@@ -463,7 +463,7 @@ class ResourceProcessorHandlerMethodReturnValueHandlerUnitTest {
 
 	static class SpecialResourcesProcessor implements RepresentationModelProcessor<SpecialResources> {
 
-		boolean invoked = false;
+		boolean invoked;
 
 		@Override
 		public SpecialResources process(SpecialResources model) {

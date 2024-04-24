@@ -104,10 +104,12 @@ public final class Alps {
 	@Override
 	public boolean equals(Object o) {
 
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+		if (o == null || getClass() != o.getClass()) {
 			return false;
+		}
 		Alps alps = (Alps) o;
 		return Objects.equals(this.version, alps.version) && Objects.equals(this.doc, alps.doc)
 				&& Objects.equals(this.descriptor, alps.descriptor);

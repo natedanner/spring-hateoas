@@ -42,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * @since 1.3
  * @see https://www.w3.org/TR/html52/sec-forms.html#element-attrdef-input-type
  */
-public class HtmlInputType {
+public final class HtmlInputType {
 
 	public static final String CHECKBOX_VALUE = "checkbox";
 	public static final HtmlInputType CHECKBOX = new HtmlInputType(CHECKBOX_VALUE);

@@ -79,9 +79,8 @@ class WebfluxCodecCustomizer implements Consumer<Object> {
 			}
 
 			for (MediaType mediaType : information.getMediaTypes()) {
-				codec.registerObjectMappersForType(information.getRootType(), map -> {
-					map.put(mediaType, objectMapper);
-				});
+				codec.registerObjectMappersForType(information.getRootType(), map ->
+					map.put(mediaType, objectMapper));
 			}
 		}
 
@@ -92,8 +91,7 @@ class WebfluxCodecCustomizer implements Consumer<Object> {
 		Class<?> type = mappingInformations.get(0).getRootType();
 		ObjectMapper mapper = firstMapper;
 
-		codec.registerObjectMappersForType(type, map -> {
-			Stream.of(MediaType.APPLICATION_JSON, ANY_JSON).forEach(mediaType -> map.put(mediaType, mapper));
-		});
+		codec.registerObjectMappersForType(type, map ->
+			Stream.of(MediaType.APPLICATION_JSON, ANY_JSON).forEach(mediaType -> map.put(mediaType, mapper)));
 	}
 }

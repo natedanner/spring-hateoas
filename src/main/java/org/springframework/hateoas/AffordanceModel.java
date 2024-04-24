@@ -41,32 +41,32 @@ public abstract class AffordanceModel {
 	/**
 	 * Name for the REST action of this resource.
 	 */
-	private String name;
+	private final String name;
 
 	/**
 	 * {@link Link} for the URI of the resource.
 	 */
-	private Link link;
+	private final Link link;
 
 	/**
 	 * Request method verb for this resource. For multiple methods, add multiple {@link Affordance}s.
 	 */
-	private HttpMethod httpMethod;
+	private final HttpMethod httpMethod;
 
 	/**
 	 * Domain type used to create a new resource.
 	 */
-	private InputPayloadMetadata input;
+	private final InputPayloadMetadata input;
 
 	/**
 	 * Collection of {@link QueryParameter}s to interrogate a resource.
 	 */
-	private List<QueryParameter> queryMethodParameters;
+	private final List<QueryParameter> queryMethodParameters;
 
 	/**
 	 * Response body domain type.
 	 */
-	private PayloadMetadata output;
+	private final PayloadMetadata output;
 
 	public AffordanceModel(String name, Link link, HttpMethod httpMethod, InputPayloadMetadata input,
 			List<QueryParameter> queryMethodParameters, PayloadMetadata output) {
@@ -248,7 +248,7 @@ public abstract class AffordanceModel {
 		default <T extends PropertyMetadataConfigured<T> & Named> T applyTo(T target) {
 
 			return getPropertyMetadata(target.getName()) //
-					.map(it -> target.apply(it)) //
+					.map(target::apply) //
 					.orElse(target);
 		}
 
@@ -298,7 +298,7 @@ public abstract class AffordanceModel {
 	 *
 	 * @author Oliver Drotbohm
 	 */
-	private static class DelegatingInputPayloadMetadata implements InputPayloadMetadata {
+	private static final class DelegatingInputPayloadMetadata implements InputPayloadMetadata {
 
 		private final PayloadMetadata metadata;
 		private final List<MediaType> mediaTypes;

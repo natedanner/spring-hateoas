@@ -99,10 +99,12 @@ public final class Descriptor {
 	@Override
 	public boolean equals(Object o) {
 
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+		if (o == null || getClass() != o.getClass()) {
 			return false;
+		}
 		Descriptor that = (Descriptor) o;
 		return Objects.equals(this.id, that.id) && Objects.equals(this.href, that.href)
 				&& Objects.equals(this.name, that.name) && Objects.equals(this.doc, that.doc) && this.type == that.type

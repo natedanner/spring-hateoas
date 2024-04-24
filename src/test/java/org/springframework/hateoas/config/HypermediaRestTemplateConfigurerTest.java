@@ -30,7 +30,7 @@ import org.springframework.web.client.RestTemplate;
 
 public class HypermediaRestTemplateConfigurerTest {
 
-	private static MediaType FRODO_JSON = MediaType.parseMediaType("application/frodo+json");
+	private static final MediaType FRODO_JSON = MediaType.parseMediaType("application/frodo+json");
 
 	@Test // #1223
 	void webConvertersShouldAddHypermediaMessageConverters() {

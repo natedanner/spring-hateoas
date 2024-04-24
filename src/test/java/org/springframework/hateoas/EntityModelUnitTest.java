@@ -75,9 +75,8 @@ class EntityModelUnitTest {
 	@Test
 	void rejectsCollectionContent() {
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			EntityModel.of(Collections.emptyList());
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			EntityModel.of(Collections.emptyList()));
 	}
 
 	@Test // #1371

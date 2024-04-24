@@ -411,7 +411,7 @@ class MultiMediaTypeWebMvcIntegrationTest {
 				.andExpect(jsonPath("$.uber.data[4].data[1].value", is("Samwise Gamgee")));
 	}
 
-	private static final ResultActions expectEmployeeProperties(ResultActions actions, String... templates)
+	private static ResultActions expectEmployeeProperties(ResultActions actions, String... templates)
 			throws Exception {
 
 		for (String template : templates) {
@@ -423,7 +423,7 @@ class MultiMediaTypeWebMvcIntegrationTest {
 					.andExpect(jsonPath("$._templates['%s'].properties[1].name", template).value("role"))
 					.andExpect(jsonPath("$._templates['%s'].properties[1].required", template).doesNotExist());
 
-			actions = template.equals("partiallyUpdateEmployee") //
+			actions = "partiallyUpdateEmployee".equals(template) //
 					? actions.andExpect(namePropertyMatcher.doesNotExist()) //
 					: actions.andExpect(namePropertyMatcher.value(true));
 		}

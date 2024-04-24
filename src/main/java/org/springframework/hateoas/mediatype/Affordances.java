@@ -41,9 +41,9 @@ import org.springframework.util.Assert;
  * @author Oliver Drotbohm
  * @see #afford(HttpMethod)
  */
-public class Affordances implements AffordanceOperations {
+public final class Affordances implements AffordanceOperations {
 
-	private static List<AffordanceModelFactory> factories = SpringFactoriesLoader
+	private static final List<AffordanceModelFactory> factories = SpringFactoriesLoader
 			.loadFactories(AffordanceModelFactory.class, Affordance.class.getClassLoader());
 
 	private final Link link;
@@ -95,7 +95,7 @@ public class Affordances implements AffordanceOperations {
 	 * @see ConfigurableAffordance
 	 * @see ConfiguredAffordance
 	 */
-	private static class AffordanceBuilder implements ConfigurableAffordance, ConfiguredAffordance {
+	private static final class AffordanceBuilder implements ConfigurableAffordance, ConfiguredAffordance {
 
 		private final Affordances context;
 		private final HttpMethod method;

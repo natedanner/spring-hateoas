@@ -78,9 +78,9 @@ class WebClientHateoasConfiguration {
 		@Override
 		public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
 
-			return !WebClient.class.isInstance(bean) //
-					? bean //
-					: this.configurer.getObject().registerHypermediaTypes(((WebClient) bean).mutate()).build();
+			return WebClient.class.isInstance(bean) //
+					? this.configurer.getObject().registerHypermediaTypes(((WebClient) bean).mutate()).build() //
+					: bean;
 		}
 	}
 }

@@ -64,8 +64,8 @@ import org.springframework.web.reactive.config.WebFluxConfigurer;
  */
 class HypermediaWebFluxConfigurerTest {
 
-	EntityModelType<Employee> resourceEmployeeType = new EntityModelType<Employee>() {};
-	CollectionModelType<EntityModel<Employee>> resourcesEmployeeType = new CollectionModelType<EntityModel<Employee>>() {};
+	EntityModelType<Employee> resourceEmployeeType = new EntityModelType<>() {};
+	CollectionModelType<EntityModel<Employee>> resourcesEmployeeType = new CollectionModelType<>() {};
 
 	WebTestClient testClient;
 
@@ -455,7 +455,7 @@ class HypermediaWebFluxConfigurerTest {
 
 	@Configuration
 	@EnableWebFlux
-	static abstract class BaseConfig {
+	abstract static class BaseConfig {
 
 		@Bean
 		TestController testController() {

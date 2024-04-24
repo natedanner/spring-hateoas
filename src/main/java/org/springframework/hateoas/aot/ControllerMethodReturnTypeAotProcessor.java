@@ -124,7 +124,7 @@ public class ControllerMethodReturnTypeAotProcessor implements BeanRegistrationA
 				LOGGER.info("Created proxy type {} for {}", proxyType, beanClass);
 			}
 
-			ReflectionUtils.doWithMethods(beanClass, (method) -> {
+			ReflectionUtils.doWithMethods(beanClass, method -> {
 
 				Class<?> returnType = method.getReturnType();
 

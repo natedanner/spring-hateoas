@@ -178,9 +178,8 @@ class HalEmbeddedBuilderUnitTest {
 
 		HalEmbeddedBuilder builder = new HalEmbeddedBuilder(provider, curieProvider, false);
 
-		assertThatIllegalStateException().isThrownBy(() -> {
-			builder.add(mock(EmbeddedWrapper.class));
-		});
+		assertThatIllegalStateException().isThrownBy(() ->
+			builder.add(mock(EmbeddedWrapper.class)));
 	}
 
 	@SuppressWarnings("unchecked")

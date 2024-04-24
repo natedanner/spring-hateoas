@@ -97,7 +97,7 @@ class RenderHypermediaForDefaultAcceptHeadersTest {
 	@RestController
 	static class EmployeeController {
 
-		private final static List<Employee> EMPLOYEES = new ArrayList<>();
+		private static final List<Employee> EMPLOYEES = new ArrayList<>();
 
 		static {
 			EMPLOYEES.add(new Employee("Frodo Baggins", "ring bearer"));

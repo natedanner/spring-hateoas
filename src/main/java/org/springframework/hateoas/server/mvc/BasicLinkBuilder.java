@@ -29,7 +29,7 @@ import org.springframework.web.util.UriComponentsBuilder;
  *
  * @author Oliver Gierke
  */
-public class BasicLinkBuilder extends LinkBuilderSupport<BasicLinkBuilder> {
+public final class BasicLinkBuilder extends LinkBuilderSupport<BasicLinkBuilder> {
 
 	/**
 	 * Creates a new {@link BasicLinkBuilder} using the given {@link UriComponentsBuilder}.

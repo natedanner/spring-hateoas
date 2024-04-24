@@ -54,9 +54,8 @@ public class AffordancesUnitTests {
 
 		assertThat(affordance).hasSize(3);
 
-		assertAffordanceModel(affordance, commonAssertions().andThen(it -> {
-			assertThat(it.getName()).isEqualTo("name");
-		}));
+		assertAffordanceModel(affordance, commonAssertions().andThen(it ->
+			assertThat(it.getName()).isEqualTo("name")));
 	}
 
 	@Test
@@ -75,9 +74,8 @@ public class AffordancesUnitTests {
 
 		assertThat(affordance).hasSize(3);
 
-		assertAffordanceModel(affordance, commonAssertions().andThen(it -> {
-			assertThat(it.getName()).isEqualTo("postEmployee");
-		}));
+		assertAffordanceModel(affordance, commonAssertions().andThen(it ->
+			assertThat(it.getName()).isEqualTo("postEmployee")));
 	}
 
 	private static Consumer<AffordanceModel> commonAssertions() {
@@ -112,9 +110,8 @@ public class AffordancesUnitTests {
 
 		public PayloadMetadataAssert isBackedBy(Class<?> type) {
 
-			Assertions.assertThat(actual).isInstanceOfSatisfying(TypeBasedPayloadMetadata.class, it -> {
-				Assertions.assertThat(it.getType()).isEqualTo(type);
-			});
+			Assertions.assertThat(actual).isInstanceOfSatisfying(TypeBasedPayloadMetadata.class, it ->
+				Assertions.assertThat(it.getType()).isEqualTo(type));
 
 			return this;
 		}

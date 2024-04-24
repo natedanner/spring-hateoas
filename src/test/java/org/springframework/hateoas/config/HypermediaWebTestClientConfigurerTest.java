@@ -27,7 +27,7 @@ import org.springframework.web.reactive.function.client.ExchangeStrategies;
 
 public class HypermediaWebTestClientConfigurerTest {
 
-	private static MediaType FRODO_JSON = MediaType.parseMediaType("application/frodo+json");
+	private static final MediaType FRODO_JSON = MediaType.parseMediaType("application/frodo+json");
 
 	@Test // #1225
 	void webTestClientConfigurerHandlesSingleHypermediaType() {

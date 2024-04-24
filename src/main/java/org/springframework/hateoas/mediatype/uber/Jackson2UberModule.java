@@ -824,7 +824,7 @@ public class Jackson2UberModule extends SimpleModule {
 
 			String name = uberData.getName();
 
-			if (name != null && name.equals("page")) {
+			if ("page".equals(name)) {
 				continue;
 			}
 

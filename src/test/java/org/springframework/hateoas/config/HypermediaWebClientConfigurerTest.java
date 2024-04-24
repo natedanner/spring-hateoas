@@ -33,7 +33,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Disabled("Until RC2 - see https://github.com/spring-projects/spring-framework/issues/29307")
 public class HypermediaWebClientConfigurerTest {
 
-	private static MediaType FRODO_JSON = MediaType.parseMediaType("application/frodo+json");
+	private static MediaType frodoJson = MediaType.parseMediaType("application/frodo+json");
 
 	@Test // #1224
 	void webClientConfigurerHandlesSingleHypermediaType() {
@@ -71,7 +71,7 @@ public class HypermediaWebClientConfigurerTest {
 			WebClient webClient = configurer.registerHypermediaTypes(WebClient.builder()).build();
 
 			assertThat(MediaTypeTestUtils.getSupportedHypermediaTypes(webClient)) //
-					.contains(HAL_JSON, FRODO_JSON) //
+					.contains(HAL_JSON, frodoJson) //
 					.doesNotContain(HAL_FORMS_JSON, COLLECTION_JSON, UBER_JSON);
 		});
 	}
@@ -92,7 +92,7 @@ public class HypermediaWebClientConfigurerTest {
 
 		@Bean
 		HypermediaMappingInformation hypermediaMappingInformation() {
-			return () -> Collections.singletonList(FRODO_JSON);
+			return () -> Collections.singletonList(frodoJson);
 		}
 	}
 }

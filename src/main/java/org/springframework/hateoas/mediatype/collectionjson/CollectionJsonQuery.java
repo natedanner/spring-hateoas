@@ -108,10 +108,12 @@ final class CollectionJsonQuery {
 	@Override
 	public boolean equals(Object o) {
 
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+		if (o == null || getClass() != o.getClass()) {
 			return false;
+		}
 		CollectionJsonQuery that = (CollectionJsonQuery) o;
 		return Objects.equals(this.rel, that.rel) && Objects.equals(this.href, that.href)
 				&& Objects.equals(this.prompt, that.prompt) && Objects.equals(this.data, that.data);

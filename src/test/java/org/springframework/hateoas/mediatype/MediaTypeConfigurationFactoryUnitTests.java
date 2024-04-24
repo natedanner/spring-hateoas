@@ -34,7 +34,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class MediaTypeConfigurationFactoryUnitTests {
 
-	@Mock MediaTypeConfigurationCustomizer<Object> first, second;
+	@Mock
+	MediaTypeConfigurationCustomizer<Object> first;
+	@Mock
+	MediaTypeConfigurationCustomizer<Object> second;
 
 	@Test // GH-2035
 	void invokesCustomizers() {

@@ -52,8 +52,7 @@ public class HypermediaWebClientConfigurer {
 	 */
 	public WebClient.Builder registerHypermediaTypes(WebClient.Builder builder) {
 
-		return builder.codecs(it -> {
-			it.defaultCodecs().configureDefaultCodec(customizer);
-		});
+		return builder.codecs(it ->
+			it.defaultCodecs().configureDefaultCodec(customizer));
 	}
 }

@@ -62,7 +62,7 @@ import org.springframework.web.util.UriComponentsBuilder;
  */
 public class WebMvcLinkBuilderFactory implements MethodLinkBuilderFactory<WebMvcLinkBuilder> {
 
-	private static ConversionService FALLBACK_CONVERSION_SERVICE = new DefaultFormattingConversionService();
+	private static final ConversionService FALLBACK_CONVERSION_SERVICE = new DefaultFormattingConversionService();
 
 	private List<UriComponentsContributor> uriComponentsContributors = new ArrayList<>();
 
@@ -147,8 +147,7 @@ public class WebMvcLinkBuilderFactory implements MethodLinkBuilderFactory<WebMvc
 	@Override
 	public WebMvcLinkBuilder linkTo(Object invocationValue) {
 
-		Function<UriMapping, UriComponentsBuilder> builderFactory = mapping -> UriComponentsBuilderFactory
-				.forMapping(mapping);
+		Function<UriMapping, UriComponentsBuilder> builderFactory = UriComponentsBuilderFactory::forMapping;
 
 		return WebHandler.linkTo(invocationValue, WebMvcLinkBuilder::new, (builder, invocation) -> {
 

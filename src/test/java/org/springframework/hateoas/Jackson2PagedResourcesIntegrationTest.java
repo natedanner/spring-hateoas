@@ -40,14 +40,14 @@ import org.springframework.util.ReflectionUtils;
  */
 class Jackson2PagedResourcesIntegrationTest {
 
-	private static String REFERENCE = "{\"links\":[],\"content\":[{\"firstname\":\"Dave\",\"lastname\":\"Matthews\"}],\"page\":{\"size\":1,\"totalElements\":2,\"totalPages\":2,\"number\":0}}";
+	private static final String REFERENCE = "{\"links\":[],\"content\":[{\"firstname\":\"Dave\",\"lastname\":\"Matthews\"}],\"page\":{\"size\":1,\"totalElements\":2,\"totalPages\":2,\"number\":0}}";
 
-	private static Method SPRING_4_2_WRITE_METHOD;
+	private static Method spring42WriteMethod;
 
 	static {
 
 		try {
-			SPRING_4_2_WRITE_METHOD = MappingJackson2HttpMessageConverter.class.getMethod("write", Object.class, Type.class,
+			spring42WriteMethod = MappingJackson2HttpMessageConverter.class.getMethod("write", Object.class, Type.class,
 					MediaType.class, HttpOutputMessage.class);
 		} catch (Exception e) {}
 	}
@@ -58,7 +58,7 @@ class Jackson2PagedResourcesIntegrationTest {
 	@Test
 	void serializesPagedResourcesCorrectly() throws Exception {
 
-		assumeThat(SPRING_4_2_WRITE_METHOD).isNotNull();
+		assumeThat(spring42WriteMethod).isNotNull();
 
 		User user = new User();
 		user.firstname = "Dave";
@@ -76,7 +76,7 @@ class Jackson2PagedResourcesIntegrationTest {
 
 		MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
 
-		ReflectionUtils.invokeMethod(SPRING_4_2_WRITE_METHOD, converter, resources, method.getGenericReturnType(),
+		ReflectionUtils.invokeMethod(spring42WriteMethod, converter, resources, method.getGenericReturnType(),
 				MediaType.APPLICATION_JSON, outputMessage);
 
 		assertThat(writer.toString()).isEqualTo(REFERENCE);
@@ -87,6 +87,7 @@ class Jackson2PagedResourcesIntegrationTest {
 	}
 
 	static class User {
-		public String firstname, lastname;
+		public String firstname;
+		public String lastname;
 	}
 }

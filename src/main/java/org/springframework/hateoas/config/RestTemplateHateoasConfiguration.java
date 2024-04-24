@@ -68,9 +68,9 @@ class RestTemplateHateoasConfiguration {
 		@Override
 		public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
 
-			return !RestTemplate.class.isInstance(bean) //
-					? bean
-					: this.configurer.getObject().registerHypermediaTypes((RestTemplate) bean);
+			return RestTemplate.class.isInstance(bean) //
+					? this.configurer.getObject().registerHypermediaTypes((RestTemplate) bean)
+					: bean;
 		}
 	}
 }

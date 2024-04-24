@@ -198,9 +198,8 @@ class WebFluxLinkBuilderTest {
 
 		WebFluxLink link = linkTo(methodOn(TestController.class).deep()).withSelfRel();
 
-		verify(request, link, result -> {
-			assertThat(result.getHref()).endsWith("/context/api/employees");
-		});
+		verify(request, link, result ->
+			assertThat(result.getHref()).endsWith("/context/api/employees"));
 	}
 
 	@Test // #1152
@@ -211,9 +210,8 @@ class WebFluxLinkBuilderTest {
 
 		WebFluxLink link = linkTo(methodOn(TestController.class).deep()).slash("foo").withSelfRel();
 
-		verify(request, link, result -> {
-			assertThat(result.getHref()).endsWith("/api/employees/foo");
-		});
+		verify(request, link, result ->
+			assertThat(result.getHref()).endsWith("/api/employees/foo"));
 	}
 
 	@Test // #1152
@@ -224,9 +222,8 @@ class WebFluxLinkBuilderTest {
 
 		WebFluxLink link = linkTo(methodOn(TestController.class).deep()).withSelfRel();
 
-		verify(request, link, result -> {
-			assertThat(result.getHref()).endsWith("/api/employees");
-		});
+		verify(request, link, result ->
+			assertThat(result.getHref()).endsWith("/api/employees"));
 	}
 
 	@Test // #1189
@@ -234,9 +231,8 @@ class WebFluxLinkBuilderTest {
 
 		WebFluxLink link = linkTo(methodOn(WebFluxClass.class).root("any")).withSelfRel();
 
-		verify(null, link, it -> {
-			assertThat(it.getHref()).endsWith("/api?view=any");
-		});
+		verify(null, link, it ->
+			assertThat(it.getHref()).endsWith("/api?view=any"));
 	}
 
 	private void verify(@Nullable MockServerHttpRequest request, WebFluxLink link, Consumer<Link> verifications) {

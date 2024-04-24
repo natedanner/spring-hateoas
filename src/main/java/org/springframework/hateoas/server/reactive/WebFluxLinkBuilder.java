@@ -50,7 +50,7 @@ import org.springframework.web.util.UriComponentsBuilder;
  * @author Oliver Drotbohm
  * @since 1.0
  */
-public class WebFluxLinkBuilder extends TemplateVariableAwareLinkBuilderSupport<WebFluxLinkBuilder> {
+public final class WebFluxLinkBuilder extends TemplateVariableAwareLinkBuilderSupport<WebFluxLinkBuilder> {
 
 	private WebFluxLinkBuilder(UriComponents components, TemplateVariables variables, List<Affordance> affordances) {
 		super(components, variables, affordances);

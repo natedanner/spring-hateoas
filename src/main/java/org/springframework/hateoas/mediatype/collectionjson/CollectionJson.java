@@ -240,10 +240,12 @@ final class CollectionJson<T> {
 	@Override
 	public boolean equals(Object o) {
 
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+		if (o == null || getClass() != o.getClass()) {
 			return false;
+		}
 		CollectionJson<?> that = (CollectionJson<?>) o;
 		return Objects.equals(this.version, that.version) && Objects.equals(this.href, that.href)
 				&& Objects.equals(this.links, that.links) && Objects.equals(this.items, that.items)

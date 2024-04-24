@@ -210,9 +210,8 @@ class EnableHypermediaSupportIntegrationTest {
 	private static String assertMediaTypeSupported(ApplicationContext context, MediaType mediaType, Class<?> type,
 			@Nullable Object source) {
 
-		context.getBeanProvider(RestTemplate.class).ifAvailable(it -> {
-			assertMediaTypeSupported(it.getMessageConverters(), mediaType, type, source);
-		});
+		context.getBeanProvider(RestTemplate.class).ifAvailable(it ->
+			assertMediaTypeSupported(it.getMessageConverters(), mediaType, type, source));
 
 		RequestMappingHandlerAdapter adapter = context.getBean(RequestMappingHandlerAdapter.class);
 
@@ -252,9 +251,8 @@ class EnableHypermediaSupportIntegrationTest {
 				.findFirst() //
 				.map(AbstractJackson2HttpMessageConverter.class::cast);
 
-		assertThat(result).hasValueSatisfying(it -> {
-			assertThat(it.getSupportedMediaTypes(type));
-		});
+		assertThat(result).hasValueSatisfying(it ->
+			assertThat(it.getSupportedMediaTypes(type)));
 
 		if (source == null) {
 			return null;
@@ -367,9 +365,8 @@ class EnableHypermediaSupportIntegrationTest {
 	@Test // #1521
 	void bootstrapsWithOutDefaultMediaTypeEnabled() {
 
-		assertThatNoException().isThrownBy(() -> {
-			withServletContext(NoDefaultMediaTypes.class, context -> {});
-		});
+		assertThatNoException().isThrownBy(() ->
+			withServletContext(NoDefaultMediaTypes.class, context -> {}));
 	}
 
 	private static void assertEntityLinksSetUp(ApplicationContext context) {

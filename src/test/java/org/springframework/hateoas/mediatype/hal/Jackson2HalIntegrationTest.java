@@ -525,9 +525,8 @@ class Jackson2HalIntegrationTest {
 
 		MessageSourceAccessor accessor = new MessageSourceAccessor(new StaticMessageSource());
 
-		assertThatCode(() -> {
-			assertThat(accessor.getMessage(relation)).isEqualTo("");
-		}).doesNotThrowAnyException();
+		assertThatCode(() ->
+			assertThat(accessor.getMessage(relation)).isEqualTo("")).doesNotThrowAnyException();
 	}
 
 	@Test // #1132

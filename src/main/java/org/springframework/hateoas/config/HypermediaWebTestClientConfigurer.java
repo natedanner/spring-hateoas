@@ -40,7 +40,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class HypermediaWebTestClientConfigurer implements WebTestClientConfigurer {
 
-	private Consumer<ClientCodecConfigurer> configurer;
+	private final Consumer<ClientCodecConfigurer> configurer;
 
 	/**
 	 * Creates a new {@link HypermediaWebTestClientConfigurer} for the given {@link ObjectMapper} and

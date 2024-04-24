@@ -37,12 +37,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(Include.NON_DEFAULT)
 final class HalFormsProperty implements Named {
 
-	private final String name, prompt, regex, placeholder;
+	private final String name;
+	private final String prompt;
+	private final String regex;
+	private final String placeholder;
 	private final Object value;
-	private final boolean templated, multi;
-	private final @JsonInclude(Include.NON_DEFAULT) boolean readOnly, required;
-	private final @Nullable Number min, max;
-	private final @Nullable Long minLength, maxLength;
+	private final boolean templated;
+	private final boolean multi;
+	private final @JsonInclude(Include.NON_DEFAULT) boolean readOnly;
+	private final @JsonInclude(Include.NON_DEFAULT) boolean required;
+	private final @Nullable Number min;
+	private final @Nullable Number max;
+	private final @Nullable Long minLength;
+	private final @Nullable Long maxLength;
 	private final @Nullable String type;
 	private final @Nullable HalFormsOptions options;
 

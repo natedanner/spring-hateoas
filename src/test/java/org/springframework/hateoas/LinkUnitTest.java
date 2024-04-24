@@ -57,34 +57,30 @@ class LinkUnitTest {
 	@Test
 	void rejectsNullHref() {
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			Link.of(null);
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			Link.of(null));
 	}
 
 	@SuppressWarnings("null")
 	@Test
 	void rejectsNullRel() {
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			Link.of("foo", (String) null);
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			Link.of("foo", (String) null));
 	}
 
 	@Test
 	void rejectsEmptyHref() {
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			Link.of("");
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			Link.of(""));
 	}
 
 	@Test
 	void rejectsEmptyRel() {
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			Link.of("foo", "");
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			Link.of("foo", ""));
 	}
 
 	@Test
@@ -170,25 +166,22 @@ class LinkUnitTest {
 	@Test
 	void rejectsMissingRelAttribute() {
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			Link.valueOf("</something>;title=\"title\"");
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			Link.valueOf("</something>;title=\"title\""));
 	}
 
 	@Test
 	void rejectsLinkWithoutAttributesAtAll() {
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			Link.valueOf("</something>");
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			Link.valueOf("</something>"));
 	}
 
 	@Test
 	void rejectsNonRFC8288String() {
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			Link.valueOf("foo");
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			Link.valueOf("foo"));
 	}
 
 	/**

@@ -89,10 +89,12 @@ final class CollectionJsonError {
 	@Override
 	public boolean equals(Object o) {
 
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+		if (o == null || getClass() != o.getClass()) {
 			return false;
+		}
 		CollectionJsonError that = (CollectionJsonError) o;
 		return Objects.equals(this.title, that.title) && Objects.equals(this.code, that.code)
 				&& Objects.equals(this.message, that.message);

@@ -97,7 +97,7 @@ class ArchitectureTest {
 
 		public static DescribedPredicate<JavaClass> dependsOn(DescribedPredicate<JavaClass> predicate) {
 
-			return new DescribedPredicate<JavaClass>("depends on reactive types") {
+			return new DescribedPredicate<>("depends on reactive types") {
 
 				/*
 				 * (non-Javadoc)

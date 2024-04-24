@@ -43,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonUnwrapped;
  * @author Oliver Drotbohm
  * @since 1.1
  */
-public class HalModelBuilder {
+public final class HalModelBuilder {
 
 	private final EmbeddedWrappers wrappers;
 

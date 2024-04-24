@@ -219,6 +219,7 @@ class TypeReferencesIntegrationTest {
 
 	@Data
 	static class User {
-		public String firstname, lastname;
+		public String firstname;
+		public String lastname;
 	}
 }

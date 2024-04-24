@@ -28,7 +28,7 @@ import java.util.HashSet;
  */
 public class IanaUriSchemes {
 
-	private static Collection<String> IANA_URI_SCHEMES = new HashSet<>(Arrays.asList( //
+	private static final Collection<String> IANA_URI_SCHEMES = new HashSet<>(Arrays.asList( //
 			"aaa", //
 			"aaas", //
 			"about", //

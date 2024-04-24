@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.*
  */
 class WebMvcLinkBuilderDslUnitTest : TestUtils() {
 
-    private val REL_PRODUCTS = "products"
+    private static val REL_PRODUCTS = "products"
 
     /**
      * @see #715

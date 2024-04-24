@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  *
  * @author Oliver Drotbohm
  */
-public class HalLinkRelation implements LinkRelation, MessageSourceResolvable {
+public final class HalLinkRelation implements LinkRelation, MessageSourceResolvable {
 
 	public static final HalLinkRelation CURIES = HalLinkRelation.uncuried("curies");
 

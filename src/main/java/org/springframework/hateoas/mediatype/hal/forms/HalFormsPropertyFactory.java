@@ -124,12 +124,12 @@ class HalFormsPropertyFactory {
 
 		String resolved = resolver.resolve(metadata);
 
-		return !StringUtils.hasText(resolved)
-				? property
-				: application.apply(resolved);
+		return StringUtils.hasText(resolved)
+				? application.apply(resolved)
+				: property;
 	}
 
-	private static class I18nedPropertyMetadata implements MessageSourceResolvable {
+	private static final class I18nedPropertyMetadata implements MessageSourceResolvable {
 
 		private final String template;
 		private final InputPayloadMetadata metadata;

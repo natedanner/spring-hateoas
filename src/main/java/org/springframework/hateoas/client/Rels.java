@@ -69,7 +69,7 @@ class Rels {
 	 *
 	 * @author Oliver Gierke
 	 */
-	private static class LinkDiscovererRel implements Rel {
+	private static final class LinkDiscovererRel implements Rel {
 
 		private final String rel;
 		private final LinkDiscoverers discoverers;
@@ -117,7 +117,7 @@ class Rels {
 	 *
 	 * @author Oliver Gierke
 	 */
-	private static class JsonPathRel implements Rel {
+	private static final class JsonPathRel implements Rel {
 
 		private final String jsonPath;
 		private final String rel;

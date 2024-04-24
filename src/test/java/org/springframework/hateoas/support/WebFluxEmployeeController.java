@@ -65,14 +65,14 @@ import org.springframework.web.server.ResponseStatusException;
 @RestController
 public class WebFluxEmployeeController {
 
-	private static Map<Integer, Employee> EMPLOYEES;
+	private static Map<Integer, Employee> employees;
 
 	public static void reset() {
 
-		EMPLOYEES = new TreeMap<>();
+		employees = new TreeMap<>();
 
-		EMPLOYEES.put(0, new Employee("Frodo Baggins", "ring bearer"));
-		EMPLOYEES.put(1, new Employee("Bilbo Baggins", "burglar"));
+		employees.put(0, new Employee("Frodo Baggins", "ring bearer"));
+		employees.put(1, new Employee("Bilbo Baggins", "burglar"));
 	}
 
 	@GetMapping("/employees")
@@ -80,7 +80,7 @@ public class WebFluxEmployeeController {
 
 		WebFluxEmployeeController controller = methodOn(WebFluxEmployeeController.class);
 
-		return Flux.fromIterable(EMPLOYEES.keySet()) //
+		return Flux.fromIterable(employees.keySet()) //
 				.flatMap(this::findOne) //
 				.collectList() //
 				.flatMap(resources -> linkTo(controller.all()).withSelfRel() //
@@ -97,7 +97,7 @@ public class WebFluxEmployeeController {
 
 		WebFluxEmployeeController controller = methodOn(WebFluxEmployeeController.class);
 
-		return Flux.fromIterable(EMPLOYEES.keySet()) //
+		return Flux.fromIterable(employees.keySet()) //
 				.flatMap(this::findOne) //
 				.filter(resource -> {
 
@@ -122,7 +122,7 @@ public class WebFluxEmployeeController {
 
 		WebFluxEmployeeController controller = methodOn(WebFluxEmployeeController.class);
 
-		Employee employee = EMPLOYEES.get(id);
+		Employee employee = employees.get(id);
 
 		if (employee == null) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -147,8 +147,8 @@ public class WebFluxEmployeeController {
 		return employee //
 				.flatMap(resource -> {
 
-					int newEmployeeId = EMPLOYEES.size();
-					EMPLOYEES.put(newEmployeeId, resource.getContent());
+					int newEmployeeId = employees.size();
+					employees.put(newEmployeeId, resource.getContent());
 					return findOne(newEmployeeId);
 				}) //
 				.map(findOne -> ResponseEntity.created(findOne //
@@ -163,7 +163,7 @@ public class WebFluxEmployeeController {
 
 		return employee.flatMap(resource -> {
 
-			EMPLOYEES.put(id, resource.getContent());
+			employees.put(id, resource.getContent());
 			return findOne(id);
 		}).map(findOne -> ResponseEntity.noContent() //
 				.location(findOne.getRequiredLink(IanaLinkRelations.SELF).toUri()).build());
@@ -176,7 +176,7 @@ public class WebFluxEmployeeController {
 		return employee //
 				.flatMap(resource -> {
 
-					Employee newEmployee = EMPLOYEES.get(id);
+					Employee newEmployee = employees.get(id);
 
 					if (resource.getContent().getName() != null) {
 						newEmployee = newEmployee.withName(resource.getContent().getName());
@@ -186,7 +186,7 @@ public class WebFluxEmployeeController {
 						newEmployee = newEmployee.withRole(resource.getContent().getRole());
 					}
 
-					EMPLOYEES.put(id, newEmployee);
+					employees.put(id, newEmployee);
 
 					return findOne(id);
 

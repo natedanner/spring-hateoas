@@ -30,7 +30,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  * @see https://rwcbook.github.io/hal-forms/#options-element
  * @since 1.3
  */
-public class HalFormsPromptedValue {
+public final class HalFormsPromptedValue {
 
 	private final Object prompt;
 	private final Object value;

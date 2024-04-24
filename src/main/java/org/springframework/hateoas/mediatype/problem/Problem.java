@@ -45,7 +45,7 @@ import com.fasterxml.jackson.annotation.JsonUnwrapped;
 @JsonInclude(Include.NON_NULL)
 public class Problem {
 
-	private static Problem EMPTY = new Problem();
+	private static Problem empty = new Problem();
 
 	private final @Nullable URI type;
 	private final @Nullable String title;
@@ -80,7 +80,7 @@ public class Problem {
 	 * @return an empty {@link Problem} instance.
 	 */
 	public static Problem create() {
-		return EMPTY;
+		return empty;
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class Problem {
 
 		Assert.notNull(payload, "Payload must not be null!");
 
-		return EMPTY.withProperties(payload);
+		return empty.withProperties(payload);
 	}
 
 	/**
@@ -242,10 +242,12 @@ public class Problem {
 	@Override
 	public boolean equals(Object o) {
 
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (!(o instanceof Problem))
+		}
+		if (!(o instanceof Problem)) {
 			return false;
+		}
 		Problem problem = (Problem) o;
 		return Objects.equals(this.type, problem.type) && Objects.equals(this.title, problem.title)
 				&& this.status == problem.status && Objects.equals(this.detail, problem.detail)
@@ -386,12 +388,15 @@ public class Problem {
 		@Override
 		public boolean equals(Object o) {
 
-			if (this == o)
+			if (this == o) {
 				return true;
-			if (!(o instanceof ExtendedProblem))
+			}
+			if (!(o instanceof ExtendedProblem)) {
 				return false;
-			if (!super.equals(o))
+			}
+			if (!super.equals(o)) {
 				return false;
+			}
 			ExtendedProblem<?> that = (ExtendedProblem<?>) o;
 			return Objects.equals(this.extendedProperties, that.extendedProperties);
 		}

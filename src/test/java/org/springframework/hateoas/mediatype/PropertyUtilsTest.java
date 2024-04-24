@@ -155,17 +155,14 @@ class PropertyUtilsTest {
 
 		InputPayloadMetadata metadata = PropertyUtils.getExposedProperties(Jsr303SamplePayload.class);
 
-		assertThat(getProperty(metadata, "nonNull")).hasValueSatisfying(it -> {
-			assertThat(it.isRequired()).isTrue();
-		});
+		assertThat(getProperty(metadata, "nonNull")).hasValueSatisfying(it ->
+			assertThat(it.isRequired()).isTrue());
 
-		assertThat(getProperty(metadata, "pattern")).hasValueSatisfying(it -> {
-			assertThat(it.getPattern()).hasValue("\\w");
-		});
+		assertThat(getProperty(metadata, "pattern")).hasValueSatisfying(it ->
+			assertThat(it.getPattern()).hasValue("\\w"));
 
-		assertThat(getProperty(metadata, "annotated")).hasValueSatisfying(it -> {
-			assertThat(it.getPattern()).hasValue("regex");
-		});
+		assertThat(getProperty(metadata, "annotated")).hasValueSatisfying(it ->
+			assertThat(it.getPattern()).hasValue("regex"));
 	}
 
 	@Test // #1121
@@ -230,7 +227,7 @@ class PropertyUtilsTest {
 	void exposesMinAndMaxFromJsr303AtSizeAnnotation() {
 
 		InputPayloadMetadata metadata = PropertyUtils.getExposedProperties(Jsr303SamplePayload.class);
-		Optional<PropertyMetadata> property = metadata.stream().filter(it -> it.getName().equals("sized")).findFirst();
+		Optional<PropertyMetadata> property = metadata.stream().filter(it -> "sized".equals(it.getName())).findFirst();
 
 		assertThat(property).hasValueSatisfying(it -> {
 			assertThat(it.getMin()).isEqualTo(41);

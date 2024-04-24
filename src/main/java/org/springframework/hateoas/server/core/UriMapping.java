@@ -34,7 +34,7 @@ import org.springframework.web.util.UriTemplate;
  *
  * @author Oliver Drotbohm
  */
-public class UriMapping {
+public final class UriMapping {
 
 	private final String mapping;
 	private final MappingVariables variables;
@@ -109,7 +109,7 @@ public class UriMapping {
 		}
 
 		public boolean hasCapturingVariable() {
-			return variables.stream().anyMatch(it -> it.isCapturing());
+			return variables.stream().anyMatch(UriMapping.MappingVariable::isCapturing);
 		}
 
 		/**
@@ -146,7 +146,7 @@ public class UriMapping {
 	 *
 	 * @author Oliver Drotbohm
 	 */
-	static class MappingVariable {
+	static final class MappingVariable {
 
 		private final String name;
 		private final boolean composite;

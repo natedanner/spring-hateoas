@@ -155,7 +155,7 @@ public class RepresentationModelProcessorIntegrationTest {
 
 	static class EntityModelProcessor implements RepresentationModelProcessor<EntityModel<Employee>> {
 
-		private @Getter @Setter boolean triggered = false;
+		private @Getter @Setter boolean triggered;
 
 		@Override
 		public EntityModel<Employee> process(EntityModel<Employee> model) {
@@ -169,7 +169,7 @@ public class RepresentationModelProcessorIntegrationTest {
 	static class CollectionModelProcessor
 			implements RepresentationModelProcessor<CollectionModel<EntityModel<Employee>>> {
 
-		private @Getter @Setter boolean triggered = false;
+		private @Getter @Setter boolean triggered;
 
 		@Override
 		public CollectionModel<EntityModel<Employee>> process(CollectionModel<EntityModel<Employee>> model) {
@@ -182,7 +182,7 @@ public class RepresentationModelProcessorIntegrationTest {
 
 	static class NonSpecificDomainObjectProcessor implements RepresentationModelProcessor<CollectionModel<?>> {
 
-		private @Getter @Setter boolean triggered = false;
+		private @Getter @Setter boolean triggered;
 
 		@Override
 		public CollectionModel<?> process(CollectionModel<?> model) {

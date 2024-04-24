@@ -503,7 +503,8 @@ public final class TemplateVariable implements Serializable, UriTemplate.Expanda
 		private static final EnumSet<VariableType> COMBINABLE_TYPES = EnumSet.of(REQUEST_PARAM, REQUEST_PARAM_CONTINUED);
 		static final String DEFAULT_SEPARATOR = ",";
 
-		private final String key, combiner;
+		private final String key;
+		private final String combiner;
 		private final boolean optional;
 
 		VariableType(String key, String combiner, boolean optional) {
@@ -602,6 +603,6 @@ public final class TemplateVariable implements Serializable, UriTemplate.Expanda
 	 *      "https://datatracker.ietf.org/doc/html/rfc6570#section-2.4.2">https://datatracker.ietf.org/doc/html/rfc6570#section-2.4.2</a>
 	 */
 	public enum Cardinality {
-		SINGULAR, COMPOSITE;
+		SINGULAR, COMPOSITE
 	}
 }

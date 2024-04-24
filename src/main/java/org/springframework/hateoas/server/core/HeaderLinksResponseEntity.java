@@ -34,7 +34,7 @@ import org.springframework.util.Assert;
  *
  * @author Oliver Gierke
  */
-public class HeaderLinksResponseEntity<T extends RepresentationModel<?>> extends ResponseEntity<T> {
+public final class HeaderLinksResponseEntity<T extends RepresentationModel<?>> extends ResponseEntity<T> {
 
 	/**
 	 * Creates a new {@link HeaderLinksResponseEntity} from the given {@link ResponseEntity}.

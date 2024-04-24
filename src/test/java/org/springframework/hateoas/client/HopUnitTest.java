@@ -36,9 +36,8 @@ class HopUnitTest {
 	@Test
 	void rejectsNullRelationName() {
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			Hop.rel(null);
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			Hop.rel(null));
 	}
 
 	/**
@@ -47,9 +46,8 @@ class HopUnitTest {
 	@Test
 	void rejectsEmptyRelationName() {
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			Hop.rel("");
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			Hop.rel(""));
 	}
 
 	/**

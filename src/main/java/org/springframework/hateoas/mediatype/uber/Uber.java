@@ -118,10 +118,12 @@ final class Uber {
 	@Override
 	public boolean equals(Object o) {
 
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (!(o instanceof Uber))
+		}
+		if (!(o instanceof Uber)) {
 			return false;
+		}
 		Uber uber = (Uber) o;
 		return Objects.equals(this.version, uber.version) && Objects.equals(this.data, uber.data)
 				&& Objects.equals(this.error, uber.error);

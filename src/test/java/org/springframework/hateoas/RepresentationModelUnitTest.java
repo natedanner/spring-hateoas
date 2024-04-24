@@ -87,9 +87,8 @@ class RepresentationModelUnitTest {
 
 		RepresentationModel<?> support = new RepresentationModel<>();
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			support.add((Link) null);
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			support.add((Link) null));
 	}
 
 	@Test
@@ -97,9 +96,8 @@ class RepresentationModelUnitTest {
 
 		RepresentationModel<?> support = new RepresentationModel<>();
 
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			support.add((Iterable<Link>) null);
-		});
+		assertThatIllegalArgumentException().isThrownBy(() ->
+			support.add((Iterable<Link>) null));
 	}
 
 	@Test

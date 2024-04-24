@@ -41,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * @author Oliver Gierke
  * @author Greg Turnquist
  */
-public class Links implements Iterable<Link> {
+public final class Links implements Iterable<Link> {
 
 	public static final Links NONE = new Links(Collections.emptyList());
 	private static final Pattern LINK_HEADER_PATTERN = Pattern.compile("(<[^>]*>(;\\s*\\w+=\"?[^\",]*\"?)+)");

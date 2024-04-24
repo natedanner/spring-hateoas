@@ -49,7 +49,7 @@ final class CollectionJsonItem<T> {
 	/**
 	 * Simple scalar types that can be encoded by value, not type.
 	 */
-	private final static Set<Class<?>> PRIMITIVE_TYPES = Collections.singleton(String.class);
+	private static final Set<Class<?>> PRIMITIVE_TYPES = Collections.singleton(String.class);
 
 	@JsonCreator
 	CollectionJsonItem(@JsonProperty("href") @Nullable String href, //
@@ -210,10 +210,12 @@ final class CollectionJsonItem<T> {
 	@Override
 	public boolean equals(Object o) {
 
-		if (this == o)
+		if (this == o) {
 			return true;
-		if (o == null || getClass() != o.getClass())
+		}
+		if (o == null || getClass() != o.getClass()) {
 			return false;
+		}
 		CollectionJsonItem<?> that = (CollectionJsonItem<?>) o;
 		return Objects.equals(this.href, that.href) && Objects.equals(this.data, that.data)
 				&& Objects.equals(this.links, that.links) && Objects.equals(this.rawData, that.rawData);

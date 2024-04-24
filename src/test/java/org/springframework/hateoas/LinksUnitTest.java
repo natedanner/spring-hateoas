@@ -163,18 +163,16 @@ class LinksUnitTest {
 				NamedLinks.of("adds via Supplier", links.andIf(true, () -> link)), //
 				NamedLinks.of("adds via Stream", links.andIf(true, Stream.of(link))));
 
-		Stream<DynamicTest> adderTests = DynamicTest.stream(adders.iterator(), NamedLinks::getName, it -> {
-			assertThat(it.links.getRequiredLink(IanaLinkRelations.SELF).getHref()).isEqualTo("/foo");
-		});
+		Stream<DynamicTest> adderTests = DynamicTest.stream(adders.iterator(), NamedLinks::getName, it ->
+			assertThat(it.links.getRequiredLink(IanaLinkRelations.SELF).getHref()).isEqualTo("/foo"));
 
 		List<NamedLinks> nonAdders = Arrays.asList(//
 				NamedLinks.of("does not add via varargs", links.andIf(false, link)), //
 				NamedLinks.of("does not add via Supplier", links.andIf(false, () -> link)), //
 				NamedLinks.of("does not add via Stream", links.andIf(false, Stream.of(link))));
 
-		Stream<DynamicTest> nonAdderTests = DynamicTest.stream(nonAdders.iterator(), NamedLinks::getName, it -> {
-			assertThat(it.links).isEmpty();
-		});
+		Stream<DynamicTest> nonAdderTests = DynamicTest.stream(nonAdders.iterator(), NamedLinks::getName, it ->
+			assertThat(it.links).isEmpty());
 
 		return Stream.concat(adderTests, nonAdderTests);
 	}
